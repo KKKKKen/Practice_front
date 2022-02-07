@@ -3,12 +3,28 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { render } from 'react-dom';
 import { ApolloProvider, gql ,useQuery } from "@apollo/client"
-// import { ApolloProvider } from "@apollo/client"
+import {
+  ApolloClient,
+  InMemoryCache,
+  // gql
+} from "@apollo/client";
+// 手順としてまずはライブラリをインストールして → new ApolloClientでinitialize（初期化にはuri, cacheつまりデータの一時保存が必要）して、
+// このファイルのコードはindex.js内に書いてもいいのかな？？分けた方が見やすいのか
+// const client = new ApolloClient({
+//     uri: "https://countries.trevorblades.com",
+//     cache: new InMemoryCache()
+// });
+
+// 実際のデータの取得
+const client = new ApolloClient({
+  uri: 'http://localhost:3003/graphql',
+  cache: new InMemoryCache()
+});
+
 
 //なぜかindex.jsじゃないとgqlが読み込まれない【仮説】gqlは{}が必要なのかな？？ 
 // →named exportはdefaultを使わずにexportされてimportに{}必要らしい
 
-import client from '../apollo-client'
 
 //ApolloProviderをアプリ上方に設置するらしい
 export const App = () => {
