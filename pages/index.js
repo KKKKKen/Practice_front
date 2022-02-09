@@ -12,6 +12,10 @@ import {
 // 手順としてまずはライブラリをインストールして → new ApolloClientでinitialize（初期化にはuri, cacheつまりデータの一時保存が必要）して、
 // このファイルのコードはindex.js内に書いてもいいのかな？？分けた方が見やすいのか
 
+
+import Sample from '../components/Sample';
+
+
 // 手順 
 // 1 ApolloClientの初期化
 // 2 上の方にApolloProviderの設置
@@ -29,13 +33,14 @@ const client = new ApolloClient({
 
 
 //ApolloProviderをアプリ上方に設置するらしい
-export const App = () => {
+export default function App ({}) {
   return (
       <ApolloProvider client={client} >
           <Sample />
       </ApolloProvider>
   );
 }
+
 //
 // const GET_POST = gql`
 //   query GetPOST {
@@ -55,25 +60,25 @@ const GET_POST = gql`
   }
 `;
 
-export const Sample = () => {
-  const {loading, error, data} = useQuery(GET_POST); // 解説します
+// export const Sample = () => {
+//   const {loading, error, data} = useQuery(GET_POST); // 解説します
 
-  if (loading) return 'ロード中....';
-  if (error) return `Error ${error.message}`;
+//   if (loading) return 'ロード中....';
+//   if (error) return `Error ${error.message}`;
 
-  return (
-    <>
-      {data.posts.map(post => (
-      <div>
-          <h1>{post.tile}</h1>
-          <h2>{post.content}</h2>
-      </div>
-      // )})
-      ))}
-    </>
-  )
+//   return (
+//     <>
+//       {data.posts.map(post => (
+//       <div>
+//           <h1>{post.tile}</h1>
+//           <h2>{post.content}</h2>
+//       </div>
+//       // )})
+//       ))}
+//     </>
+//   )
     
-};
+// };
 
 
 // export default function Home({ countries }) {
