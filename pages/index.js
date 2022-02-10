@@ -2,19 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { render } from 'react-dom';
-// import { gql, useQuery } from '@apollo/client';
-import { ApolloProvider, gql ,useQuery } from "@apollo/client"
-import {
-  ApolloClient,
-  InMemoryCache,
-  // gql
-} from "@apollo/client";
+import { ApolloProvider } from "@apollo/client"
+
 // 手順としてまずはライブラリをインストールして → new ApolloClientでinitialize（初期化にはuri, cacheつまりデータの一時保存が必要）して、
 // このファイルのコードはindex.js内に書いてもいいのかな？？分けた方が見やすいのか
 
-
+import client from '../apollo-client';
 import Sample from '../components/Sample';
-
 
 // 手順 
 // 1 ApolloClientの初期化
@@ -22,10 +16,15 @@ import Sample from '../components/Sample';
 // 3 クエリの実行
 
 // 1 ApolloClientの初期化
-const client = new ApolloClient({
-  uri: 'http://localhost:3003/graphql',
-  cache: new InMemoryCache()
-});
+// （apollo.jsから読み込んでいるのでuseQueryを使う上では不要）
+// import {
+//   ApolloClient,
+//   InMemoryCache,
+// } from "@apollo/client";
+// const client = new ApolloClient({
+//   uri: 'http://localhost:3003/graphql',
+//   cache: new InMemoryCache()
+// });
 
 
 //なぜかindex.jsじゃないとgqlが読み込まれない【仮説】gqlは{}が必要なのかな？？ 
@@ -51,24 +50,7 @@ export default function App ({}) {
   );
 }
 
-//
-// const GET_POST = gql`
-//   query GetPOST {
-//     posts {
-//       title
-//       content
-//     }
-//   }
-// `;
 
-const GET_POST = gql`
-  {
-    posts {
-      title
-      content
-    }
-  }
-`;
 
 // export const Sample = () => {
 //   const {loading, error, data} = useQuery(GET_POST); // 解説します
