@@ -14,7 +14,7 @@ export const GET_POST = gql`
 // default exportは避けた方がいいらしい
 // const Sample = () => {
 
-  export const Sample = () => {
+  const Sample = () => {
     const {loading, error, data} = useQuery(GET_POST); // 解説します
 
     if (loading) return 'ロード中....';
@@ -22,6 +22,7 @@ export const GET_POST = gql`
 
     return (
       <>
+        <h1>こんにちは</h1>
         {data.posts.map(post => (
         <div>
             <h1>{post.tile}</h1>
@@ -29,6 +30,7 @@ export const GET_POST = gql`
         </div>
         // )})
         ))}
+
       </>
     )
 };
