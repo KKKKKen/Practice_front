@@ -14,7 +14,6 @@ import Sample from '../components/Sample';
 import gql from 'graphql-tag';
 
 import { CreatePost } from '../components/cratePost';
-import { createPostfix } from 'typescript';
 
 // 手順 
 // 1 ApolloClientの初期化
