@@ -29,13 +29,13 @@ import { storeKeyNameFromField } from '@apollo/client/utilities'
   // } まさかのV2のだから動かない説あるぞ！！！！英語の動画と同じコードなら動くだろという幻想は捨てよ！！
 
 const CREATE_POST = gql`
-  mutation CreatePost($title: String!, $content: String!) {
+  mutation CreateCreatePost($title: String!, $content: String!) {
     createPost(title: $title, content: $content) {
       title
       content
     }
   }
-`;
+ `;
 
 // export function CreatePost() {
   export const CreatePost = () => {
@@ -51,8 +51,8 @@ const CREATE_POST = gql`
   // if (loading) return '読み込んでるよ';
   // if (error) return 'エラー発生したよ';
 
-  console.log(title+'state')
-  console.log(`${content}チェケラ`)
+  console.log(title+'定義部分')
+  console.log(`${content}定義部分`)
   // const handleClick = (title: String) {
 
   // }
@@ -72,6 +72,7 @@ const CREATE_POST = gql`
   const onSubmit = e => {
     // e.preventDefault();リダイレクトを防ぐやる必要のないことはやらない
     e.preventDefault();
+    console.log(title+'⇦heyheyheyhey')
     createPost({ variables: { title: title, content: content } });
   }
 
