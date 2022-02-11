@@ -1,11 +1,13 @@
 // フック＝関数コンポーネントにstateやライフサイクルなどの機能を接続する（hook into）ための機能
 import React, { useRef } from 'react'
-import { gql, useMutation } from '@apollo/client'
+import { gql } from '@apollo/client'
+import { useMutation } from '@apollo/client'
+// import { useMutation } from '@apollo/react-hooks'
 // import { useMutation } from '@apollo/react-hooks'
 // inputのvalueにstateを入れてstate経由でユーザーから入力された値を取得する方法もあるがそれよりもスマートなのがuseRef！
 
 
-// 定義
+// 定義例 $typeをtype: ここ に代入している
 // export const CREATE_POST = gql`
 //   mutation CreatePost($type: String) {
 //     createPost(type: $type) {
@@ -35,15 +37,15 @@ const CREATE_POST = gql`
 
   // }
   // preventDefault()で送信した時にリダイレクトをしないようにする
-  const handleClick = e => {
-    e.preventDefault();
+  // const handleClick = e => {
+  //   e.preventDefault();
 
-  }
+  // }
 
   // useRef（inputからvalueを取得するために使う）
   const inputTitleRef = useRef(null)
   const inputContentRef = useRef(null)
-
+  console.log(inputTitleRef+'デバッグ')
 
 // デバッグはいつでも出力させること！Golangではfmt.Printf(%v, 出力したい変数名)でやっていたように
 // フロントではconcole.log()
@@ -53,9 +55,9 @@ const CREATE_POST = gql`
       onSubmit={e => {
         e.preventDefault();
         // console.log(e.target.text.value)
-        CreatePost({ variables: { type: inputTitleRef, content: inputContentRef } });
+        console.log(inputTitleRef+'kぢ')
+        createPost({ variables: { title: inputTitleRef, content: inputContentRef } });
         // useMutationを含む変数をここで使うのかな？？
-        input.value = '';
       }}
     >
       <p>title</p>
