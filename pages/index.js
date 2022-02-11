@@ -7,8 +7,14 @@ import { ApolloProvider } from "@apollo/client"
 // 手順としてまずはライブラリをインストールして → new ApolloClientでinitialize（初期化にはuri, cacheつまりデータの一時保存が必要）して、
 // このファイルのコードはindex.js内に書いてもいいのかな？？分けた方が見やすいのか
 
+// mutation
 import client from '../apollo-client';
 import Sample from '../components/Sample';
+
+import gql from 'graphql-tag';
+
+import { CreatePost } from '../components/cratePost';
+import { createPostfix } from 'typescript';
 
 // 手順 
 // 1 ApolloClientの初期化
@@ -42,7 +48,8 @@ export default function App ({}) {
              <link rel="icon" href="/favicon.ico" />
            </Head>
            <main>
-             <h1>Hello World</h1>
+             <h1></h1>
+            <CreatePost/>
            </main>
          </div>
           <Sample />
@@ -50,6 +57,14 @@ export default function App ({}) {
   );
 }
 
+const ADD_TODO = gql`
+  mutation AddTodo($type: String!) {
+    addTodo(type: $type) {
+      id
+      type
+    }
+  }
+`;
 
 
 // export const Sample = () => {

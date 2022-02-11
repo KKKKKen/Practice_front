@@ -14,6 +14,8 @@ export const GET_POST = gql`
 // default exportは避けた方がいいらしい
 // const Sample = () => {
 
+// 準備は定数、実行するのは関数！
+
   const Sample = () => {
     const {loading, error, data} = useQuery(GET_POST); // 解説します
 
@@ -22,7 +24,7 @@ export const GET_POST = gql`
 
     return (
       <>
-        <h1>こんにちは</h1>
+        <h1>Posts一覧</h1>
         {data.posts.map(post => (
         <div>
             <h1>{post.tile}</h1>
@@ -34,5 +36,21 @@ export const GET_POST = gql`
       </>
     )
 };
+
+// constで定義して関数で実行！！
+const INCREMENT_COUNTER = gql`
+  mutation CreatePost {
+    createPost {
+      title
+      content
+    }
+  }
+`;
+
+
+
+
+
+
 
 export default Sample
