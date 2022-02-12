@@ -54,8 +54,8 @@ import { storeKeyNameFromField } from '@apollo/client/utilities'
 
 // ↑をコピーしてmutationの定義を変更していく
 const CREATE_POST = gql`
-  mutation CreatePost($CreatePostInput:CreatePostInput!) {
-    createPost(input: $CreateNewPostInput) {
+  mutation CreatePost($input: CreatePostInput!) {
+    createPost(input: $input) {
       post {
         id
         title
