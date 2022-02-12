@@ -28,17 +28,29 @@ import { storeKeyNameFromField } from '@apollo/client/utilities'
 
   // } まさかのV2のだから動かない説あるぞ！！！！英語の動画と同じコードなら動くだろという幻想は捨てよ！！
 
+// const CREATE_POST = gql`
+//   mutation CreateCreatePost($title: String!, $content: String!) {
+//     createPost(title: $title, content: $content) {
+//       title
+//       content
+//     }
+//   }
+//  `;
+
 const CREATE_POST = gql`
   mutation CreateCreatePost($title: String!, $content: String!) {
     createPost(title: $title, content: $content) {
-      title
-      content
+        id
+        title
+        content
     }
   }
  `;
 
+
 // export function CreatePost() {
   export const CreatePost = () => {
+  // function CreatePost () {
   // top-levelでのみフック（useStateとか）を呼び出す必要がある
   // const [createPost, {data, loading, error}] = useMutation(CREATE_POST);
   // let title, content;
@@ -51,8 +63,8 @@ const CREATE_POST = gql`
   // if (loading) return '読み込んでるよ';
   // if (error) return 'エラー発生したよ';
 
-  console.log(title+'定義部分')
-  console.log(`${content}定義部分`)
+  console.log(title+'定義部分のtitle')
+  console.log(`${content}定義部分content`)
   // const handleClick = (title: String) {
 
   // }
@@ -69,12 +81,13 @@ const CREATE_POST = gql`
 
   console.log(title+'state')
   
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     // e.preventDefault();リダイレクトを防ぐやる必要のないことはやらない
     e.preventDefault();
     console.log(title+'⇦heyheyheyhey')
     createPost({ variables: { title: title, content: content } });
   }
+// JSON.stringify()
 
 // デバッグはいつでも出力させること！Golangではfmt.Printf(%v, 出力したい変数名)でやっていたように
 // フロントではconcole.log()
