@@ -24,9 +24,24 @@ import { storeKeyNameFromField } from '@apollo/client/utilities'
 //   title
 //   content
 // }
-// これをconst CREATE_POSTの中に入れていたがこの書き方はv2だったぞ
+// これをconst CREATE_POSTの中に入れていたがこの書き方はv2だったぞ→関係なかった
+
+// mutation {
+//   createPost(title: String, $content: String)(
+//     input:{
+//       title: "title"
+//       content: "description"
+//     }
+//   ){
+//     post {
+//       title
+//       content
+//     }
+//   }
+// }
 
   // } まさかのV2のだから動かない説あるぞ！！！！英語の動画と同じコードなら動くだろという幻想は捨てよ！！
+
 
 // const CREATE_POST = gql`
 //   mutation CreateCreatePost($title: String!, $content: String!) {
@@ -37,15 +52,43 @@ import { storeKeyNameFromField } from '@apollo/client/utilities'
 //   }
 //  `;
 
+// ↑をコピーしてmutationの定義を変更していく
 const CREATE_POST = gql`
-  mutation CreateCreatePost($title: String!, $content: String!) {
-    createPost(title: $title, content: $content) {
+  mutation CreatePost($CreatePostInput:CreatePostInput!) {
+    createPost(input: $CreateNewPostInput) {
+      post {
         id
         title
         content
+      }
     }
   }
  `;
+
+// inputObjectを使ってもうまくいかないぞ！！
+//  mutation CreatePost($CreatePostInput:CreatePostInput!) {
+//   createPost(input: $CreateNewPostInput) {
+//     post {
+//       id
+//       title
+//       content
+//     }
+//   }
+// }
+
+
+
+// const CREATE_POST = gql`
+//   mutation {
+//     createPost(
+//       title: $title
+//       content: $content
+//     ) post {
+//         title
+//         content
+//     }
+//   }
+//  `;
 
 
 // export function CreatePost() {
