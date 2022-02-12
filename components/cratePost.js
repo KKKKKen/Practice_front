@@ -128,7 +128,7 @@ const CREATE_POST = gql`
     // e.preventDefault();リダイレクトを防ぐやる必要のないことはやらない
     e.preventDefault();
     console.log(title+'⇦heyheyheyhey')
-    createPost({ variables: { title: title, content: content } });
+    createPost({ variables: { input: {title, content} } });
   }
 // JSON.stringify()
 
