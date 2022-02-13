@@ -25,8 +25,9 @@ export const GET_POST = gql`
     return (
       <>
       <div className={styles.container}>
+        <h1>Posts一覧</h1>
         <div className={styles.grid}>
-          <h1>Posts一覧</h1>
+
               {data.posts.map(post => (
               <div className={styles.card}>
                   <h1>{post.title}</h1>
