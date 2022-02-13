@@ -1,6 +1,6 @@
 // import React from 'react';
 import { useQuery, gql } from "@apollo/client";
-
+import styles from '../styles/Home.module.css'
 
 export const GET_POST = gql`
   {
@@ -26,7 +26,7 @@ export const GET_POST = gql`
       <>
         <h1>Posts一覧</h1>
         {data.posts.map(post => (
-        <div>
+        <div className={styles.card}>
             <h1>{post.title}</h1>
             <h2>{post.content}</h2>
         </div>

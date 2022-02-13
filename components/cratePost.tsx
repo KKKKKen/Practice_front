@@ -100,8 +100,8 @@ const CREATE_POST = gql`
   const [title, setTitle]  = useState('')
   const [content, setContent] = useState('')
 
-  const [createPost, {data}] = useMutation(CREATE_POST);
-  // const [createPost, {data, loading, error}] = useMutation(CREATE_POST)
+  // const [createPost, {data}] = useMutation(CREATE_POST);
+  const [createPost, {data, loading, error}] = useMutation(CREATE_POST)
 
   // if (loading) return '読み込んでるよ';
   // if (error) return 'エラー発生したよ';
