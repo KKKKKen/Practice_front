@@ -4,6 +4,8 @@ import React, { useRef, useState} from 'react'
 import { gql, useMutation } from '@apollo/client'
 import { storeKeyNameFromField } from '@apollo/client/utilities'
 import { resolveProjectReferencePath } from 'typescript';
+
+import { GET_POST } from './Sample';
 // import { useMutation } from '@apollo/react-hooks'
 // import { useMutation } from '@apollo/react-hooks'
 // inputのvalueにstateを入れてstate経由でユーザーから入力された値を取得する方法もあるがそれよりもスマートなのがuseRef！
@@ -102,7 +104,12 @@ const CREATE_POST = gql`
   const [content, setContent] = useState('')
 
   // const [createPost, {data}] = useMutation(CREATE_POST);
-  const [createPost, {data, loading, error}] = useMutation(CREATE_POST)
+  const [createPost, {data, loading, error}] = useMutation(CREATE_POST, {
+    refetchQueries: [
+      GET_POST,
+      'posts'
+    ],
+  })
 
   // if (loading) return '読み込んでるよ';
   // if (error) return 'エラー発生したよ';
