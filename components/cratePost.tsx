@@ -137,6 +137,8 @@ const CREATE_POST = gql`
     e.preventDefault();
     console.log(title+'⇦heyheyheyhey')
     createPost({ variables: { input: {title, content} } });
+    setTitle('')
+    setContent('')
   }
 // JSON.stringify()
 
