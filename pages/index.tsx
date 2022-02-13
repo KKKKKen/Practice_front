@@ -64,28 +64,6 @@ const ADD_TODO = gql`
   }
 `;
 
-
-// export const Sample = () => {
-//   const {loading, error, data} = useQuery(GET_POST); // 解説します
-
-//   if (loading) return 'ロード中....';
-//   if (error) return `Error ${error.message}`;
-
-//   return (
-//     <>
-//       {data.posts.map(post => (
-//       <div>
-//           <h1>{post.tile}</h1>
-//           <h2>{post.content}</h2>
-//       </div>
-//       // )})
-//       ))}
-//     </>
-//   )
-    
-// };
-
-
 // export default function Home({ countries }) {
 //   return (
 //     <div className={styles.container}>
