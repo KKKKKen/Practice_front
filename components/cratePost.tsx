@@ -150,7 +150,7 @@ const CREATE_POST = gql`
 // デバッグはいつでも出力させること！Golangではfmt.Printf(%v, 出力したい変数名)でやっていたように
 // フロントではconcole.log()
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} style={{ margin: "auto" }}>
       <form onSubmit={onSubmit}> 
           <p>title</p>
           <input

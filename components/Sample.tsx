@@ -24,8 +24,8 @@ export const GET_POST = gql`
     // デバッグ＝console.log(変数名 + "デバッグ")が基本であり奥義
     return (
       <>
-      <div className={styles.container}>
-        <h1>みんなの学び</h1>
+      <div className={styles.container} style={{ margin: "auto" }}>
+        <h1 style={{ textAlign: "center" }}>↓みんなの学び↓</h1>
         <div className={styles.grid}>
 
               {data.posts.map(post => (
