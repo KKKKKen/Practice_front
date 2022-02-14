@@ -101,6 +101,13 @@ const CREATE_POST = gql`
   const [title, setTitle]  = useState('')
   const [content, setContent] = useState('')
 
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('')
+  // <>で型を定義している
+  const inputLengthZero = (): boolean => {
+    if(title.length === 0 || content.length === 0) return true;
+  }
+
   // const [createPost, {data}] = useMutation(CREATE_POST);
   const [createPost, {data, loading, error}] = useMutation(CREATE_POST, {
     refetchQueries: [
@@ -171,7 +178,10 @@ const CREATE_POST = gql`
             onChange={e => setContent(e.target.value)}
             className='content'
           />
-          <button type="submit">share</button>
+          <button
+            type="submit"
+            disabled={inputLengthZero()}
+            >share</button>
     </form>
     </div>
 
