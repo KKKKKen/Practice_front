@@ -1,0 +1,30 @@
+// import { gql } from "@apollo/client";
+// import { createPostfix } from "typescript";
+
+import { createPostfix } from "typescript"
+
+// export const CREATE_POST = gql`
+//   mutation($params: Post)
+// `
+
+
+
+// SPAの書き方修正された
+MutationObserver()
+
+
+
+
+// TypeScriptらしい↓
+// type Mutation {
+
+// }
+
+
+
+
+
+
+
+
+
