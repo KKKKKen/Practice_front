@@ -9,7 +9,7 @@ import { GET_POST } from './Sample';
 // import { useMutation } from '@apollo/react-hooks'
 // import { useMutation } from '@apollo/react-hooks'
 // inputのvalueにstateを入れてstate経由でユーザーから入力された値を取得する方法もあるがそれよりもスマートなのがuseRef！
-
+import styles from '../styles/Home.module.css'
 
 // 定義例 $typeをtype: ここ に代入している
 // export const CREATE_POST = gql`
@@ -150,19 +150,7 @@ const CREATE_POST = gql`
 // デバッグはいつでも出力させること！Golangではfmt.Printf(%v, 出力したい変数名)でやっていたように
 // フロントではconcole.log()
   return (
-    <div>
-
-    {/* <form
-      onSubmit={e => {
-        e.preventDefault();
-        // console.log(e.target.text.value)
-        console.log(inputTitleRef+'kぢ')
-        createPost({ variables: { title, content } });
-        // createPost({ variables: { title: title, content: content } });
-        // useMutationを含む変数をここで使うのかな？？
-      }}
-    > */}
-
+    <div className={styles.grid}>
       <form onSubmit={onSubmit}> 
           <p>title</p>
           <input
