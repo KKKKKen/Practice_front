@@ -26,7 +26,7 @@ export const GET_POST = gql`
       <>
       <div className={styles.container} style={{ margin: "auto" }}>
         <h1 style={{ textAlign: "center" }}>↓みんなの学び↓</h1>
-        <div className={styles.grid}>
+        <div className={styles.grid} style={{ margin: "auto" }}>
 
               {data.posts.map(post => (
               <div className={styles.card}>

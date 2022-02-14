@@ -152,24 +152,28 @@ const CREATE_POST = gql`
   return (
     <div className={styles.grid} style={{ margin: "auto" }}>
       <form onSubmit={onSubmit}> 
-          <p>title</p>
-          <input
-            ref={inputTitleRef}
-            value={title}
-            onChange={e => setTitle(e.target.value)}
-            className='title'
-          />
-          <p>post</p>
-          <input 
-            ref={inputContentRef}
-            value={content}
-            onChange={e => setContent(e.target.value)}
-            className='content'
-          />
-          <button
-            type="submit"
-            disabled={inputLengthZero()}
-            >share</button>
+        <h3 style={{ textAlign: "center" }}>今日の学びをShare</h3>
+        <p style={{ textAlign: "center" }}>title</p>
+        <input
+          ref={inputTitleRef}
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          className='title'
+          style={{ margin: 'auto', display: 'block' }}
+        />
+        <p style={{ textAlign: "center" }}>post</p>
+        <input 
+          ref={inputContentRef}
+          value={content}
+          onChange={e => setContent(e.target.value)}
+          className='content'
+          style={{ textAlign: "center", display: 'block' }}
+        />
+        <button
+          type="submit"
+          disabled={inputLengthZero()}
+          style={{ margin: '10px auto', display: 'block', padding: '10px' }}
+          >share</button>
     </form>
     </div>
 
