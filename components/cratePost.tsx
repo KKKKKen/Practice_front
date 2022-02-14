@@ -21,8 +21,6 @@ import { GET_POST } from './Sample';
 //   }
 //   `
 
-
-
 // mutation createPost {
 //   title
 //   content
@@ -159,21 +157,21 @@ const CREATE_POST = gql`
     > */}
 
       <form onSubmit={onSubmit}> 
-      <p>title</p>
-      <input
-        ref={inputTitleRef}
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        className='title'
-      />
-      <p>post</p>
-      <input 
-        ref={inputContentRef}
-        value={content}
-        onChange={e => setContent(e.target.value)}
-        className='content'
-      />
-      <button type="submit">Add Todo</button>
+          <p>title</p>
+          <input
+            ref={inputTitleRef}
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            className='title'
+          />
+          <p>post</p>
+          <input 
+            ref={inputContentRef}
+            value={content}
+            onChange={e => setContent(e.target.value)}
+            className='content'
+          />
+          <button type="submit">share</button>
     </form>
     </div>
 
